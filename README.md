@@ -100,6 +100,14 @@ spring.datasource.driver-class-name=org.sqlite.JDBC
 spring.jpa.database-platform=org.hibernate.community.dialect.SQLiteDialect
 ```
 
+### Creating the Keystore
+I created a self-signed certificate for HTTPS using this command:
+```bash
+keytool -genkeypair -alias assignment4 -keyalg RSA -keysize 2048 -storetype PKCS12 -keystore src/main/resources/keystore.p12 -validity 365
+```
+
+It can be found in src/main/resources/keystore.p12
+
 ### HTTPS Setup
 ```properties
 server.port=8443
