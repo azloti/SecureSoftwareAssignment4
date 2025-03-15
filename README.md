@@ -2,6 +2,20 @@
 
 This is my implementation of Assignment 4. I created a simple Spring Boot app that lets you create and manage notes securely. The main focus was on making it secure against SQL injection and making sure all data is transmitted safely using HTTPS.
 
+## Project Setup
+
+I used Spring Initializr (start.spring.io) to create the base project because it's the industry standard way to bootstrap Spring Boot applications. It provides:
+- A solid project structure
+- Sensible default configurations
+- Dependency management
+- Gradle build setup
+
+I selected these initial dependencies:
+- Spring Web
+- Spring Security
+- Spring Data JPA
+Then added SQLite support later.
+
 ## Features
 
 I implemented three main security features:
