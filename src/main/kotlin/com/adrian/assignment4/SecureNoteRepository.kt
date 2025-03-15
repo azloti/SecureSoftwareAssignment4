@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository
 @Repository
 interface SecureNoteRepository : JpaRepository<SecureNote, Long> {
     fun findByCreatedBy(username: String): List<SecureNote>
-    fun findByTitleContainingIgnoreCase(title: String): List<SecureNote>
 } 

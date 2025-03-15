@@ -27,14 +27,10 @@ class SecurityConfig {
             .authorizeHttpRequests {
                 it.requestMatchers("/public/**").permitAll()
                   .requestMatchers("/api/notes/**").authenticated()
-                  .requestMatchers("/h2-console/**").hasRole("ADMIN")
                   .anyRequest().authenticated()
             }
             .sessionManagement {
                 it.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
-            }
-            .headers {
-                it.frameOptions { frame -> frame.sameOrigin() }  // Required for H2 console
             }
             .formLogin { it.permitAll() }
             .logout { it.permitAll() }
@@ -51,13 +47,7 @@ class SecurityConfig {
             .roles("USER")
             .build()
 
-        val admin = User.builder()
-            .username("admin")
-            .password(passwordEncoder().encode("admin"))
-            .roles("USER", "ADMIN")
-            .build()
-
-        return InMemoryUserDetailsManager(user, admin)
+        return InMemoryUserDetailsManager(user)
     }
 
     @Bean
